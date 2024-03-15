@@ -1,0 +1,119 @@
+
+.order-container {
+    background-color: rgb(242, 237, 232);
+}
+
+.order-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20vh 20vh 2vh 20vh;
+}
+
+.order-body {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px 30px;
+    padding: 0vh 20vh 7vh 20vh;
+}
+
+.order-bottom {
+    display: flex;
+    justify-content: center;
+    padding: 2vh 20vh 10vh 20vh;
+}
+
+.order-bottom2 {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    font-size: 20px;
+    background-color: rgb(179, 234, 179);
+    border: none;
+    border-radius: 20px;
+    width: 80px;
+    height: 50px;
+}
+
+button:hover {
+    background-color: rgb(136, 231, 136);
+    cursor: pointer;
+}
+
+#cart-button {
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    color: black;
+    height: 60px;
+    min-width: 100px;
+}
+
+#button1 {
+    font-size: 30px;
+    height: 30px;
+    border-radius: 90px;
+    color: red;
+}
+
+#x-button {
+    border-radius: 10px;
+}
+
+#button1:hover {
+    background-color: rgba(244, 235, 235, 0.662);
+}
+
+#button2 {
+    font-size: 25px;
+    height: 30px;
+    border-radius: 90px;
+}
+
+
+@media only screen and (max-width: 1300px)  {
+    .order-body {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media only screen and (max-width: 950px)  {
+    .order-body {
+        grid-template-columns: auto;
+        padding: 0vh 10vh 7vh 10vh;
+    }
+
+    .order-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20vh 15vh 2vh 15vh;
+    }
+}
+
+@media only screen and (max-width: 460px)  {
+    .order-body {
+        grid-template-columns: auto;
+        padding: 0vh 2vh 7vh 2vh;
+    }
+
+    .order-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16vh 4vh 2vh 4vh;
+    }
+
+    #order-header-text {
+        font-size: 22px;
+    }
+}

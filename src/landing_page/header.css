@@ -26,11 +26,12 @@ a {
     display: flex;
     justify-content: space-between;
     padding: 0vh 3vh 0vh 3vh;
-    background-color: #FFFFFE;
+    background-color: #fffffe;
     box-shadow: 1px 1px 3px;
     position: fixed;
     /* top: 5px;
     left: 5px; */
     width: 100%;
-
+    z-index: 1;
+    top: 0px;
 }
