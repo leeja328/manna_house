@@ -35,3 +35,18 @@
     text-align: center;
     gap: 100px;
 }
+
+
+@media only screen and (max-width: 480px) {
+    .home-body {
+        flex-direction: column;
+    }
+
+    .home-body2 {
+        flex-direction: column;
+    }
+
+    .home-body3 {
+        flex-direction: column;
+    }
+}

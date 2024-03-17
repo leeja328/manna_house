@@ -79,6 +79,21 @@ button:hover {
     border-radius: 90px;
 }
 
+.input-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#validate {
+    color: red;
+    font-weight: 400;
+}
+
+#place-order {
+    border: solid;
+    border-color: #1976D2;
+    width: 300px;
+}
 
 @media only screen and (max-width: 1300px)  {
     .order-body {

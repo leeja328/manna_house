@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from "react";
+import { useEffect } from "react";
 import Header from '../landing_page/header';
 import Footer from '../landing_page/footer';
 import './Order.css';
@@ -20,6 +21,7 @@ import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
 
 import rice1 from '../images/rice1.png';
 import rice2 from '../images/rice2.jpg';
@@ -70,6 +72,16 @@ function Order() {
   const [summary, setSummary] = useState('');
 
   const [total, setTotal] = useState(0);
+
+  const [name1, setName1] = useState('');
+
+  const [phone1, setPhone1] = useState('');
+
+  const [validate, setValidate] = useState();
+
+  const [validate2, setValidate2] = useState();
+
+  const [empty_order, setEmpty_order] = useState('');
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -165,10 +177,40 @@ function Order() {
     setOpen(false);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Prevents default form submission behavior
-    // Your logic to handle form submission
+  const handleChange = (event) => {
+    if (event.target.name === 'phone') {
+      setPhone1(event.target.value);
+    } else if (event.target.name === 'name') {
+      setName1(event.target.value);
+    }
+  }
+
+  const handleSubmit = () => {
+    if (name1 === '') {
+      setValidate(true)
+      console.log('error')
+    } else {
+      setValidate(false)
+      console.log('success')
+    }
+
+    if (phone1 === '') {
+      setValidate2(true)
+      console.log('error2')
+    } else {
+      setValidate2(false)
+      console.log('success2')
+    }
   };
+
+  useEffect(() => {
+    // Check if total is equal to 0
+    if (total === 0) {
+      setEmpty_order('*Cart Empty!');
+    } else {
+      setEmpty_order('');
+    }
+  }, [total]);
 
   const plusOne = () => {
     if (num < 10) {setNum(num + 1)}
@@ -463,7 +505,7 @@ function Order() {
       <Button id='cart-button' onClick={handleClickOpen}><ShoppingCartIcon/>Cart</Button>
     </div>
     <React.Fragment>
-      <form onSubmit={handleSubmit}>
+      <form>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
@@ -486,9 +528,41 @@ function Order() {
           <CloseIcon />
         </IconButton>
         <DialogContent dividers>
-          <h3>Name</h3><input type="text" required/>
-          <h3>Phone#</h3><input type="text" required/>
-          <h3>Address</h3><input type="text" />
+        <div className='input-form'>
+          <TextField
+          error={validate}
+          label="*required"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: '30ch'}}
+          onChange={handleChange}
+          InputProps={{
+            startAdornment: <InputAdornment position="start">Name:</InputAdornment>,
+          }}
+          name='name'
+          />
+          <TextField
+          error={validate2}
+          label="*required"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: '30ch' }}
+          onChange={handleChange}
+          InputProps={{
+            startAdornment: <InputAdornment position="start">Phone:</InputAdornment>,
+          }}
+          name='phone'
+          />
+          <TextField
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: '30ch' }}
+          InputProps={{
+            startAdornment: <InputAdornment position="start">Address:</InputAdornment>,
+          }}
+          />
+        </div>
+        
+          {/* <h3>Name</h3><h5 id='validate'>{validate}</h5><input type="text" value={name1} name='name' onChange={handleChange}/>
+          <h3>Phone#</h3><input type="text" name='phone'/>
+          <h3>Address</h3><input type="text"/> */}
           <Typography gutterBottom>
             <pre>
               {summary}
@@ -496,13 +570,14 @@ function Order() {
           </Typography>
           <Typography gutterBottom>
             Order Total: ${total}
+            <h5 id='validate'>{empty_order}</h5>
           </Typography>
         </DialogContent>
         <DialogActions>
-          {/* <Button autoFocus onClick={handleClose}>
+          <Button autoFocus onClick={handleSubmit} id='place-order'>
             Place Order
-          </Button> */}
-          <input type="submit" value="Submit"/>
+          </Button>
+          {/* <input type="submit" onSubmit={handleSubmit}/> */}
         </DialogActions>
       </BootstrapDialog>
       </form>
