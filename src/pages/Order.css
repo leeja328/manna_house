@@ -89,6 +89,14 @@ button:hover {
     font-weight: 400;
 }
 
+.order-summary {
+    padding-left: 12px;
+}
+
+#order-total {
+    font-weight: 800
+}
+
 #place-order {
     border: solid;
     border-color: #1976D2;

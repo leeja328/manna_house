@@ -559,20 +559,19 @@ function Order() {
           }}
           />
         </div>
-        
-          {/* <h3>Name</h3><h5 id='validate'>{validate}</h5><input type="text" value={name1} name='name' onChange={handleChange}/>
-          <h3>Phone#</h3><input type="text" name='phone'/>
-          <h3>Address</h3><input type="text"/> */}
+        <div className='order-summary'>
           <Typography gutterBottom>
             <pre>
               {summary}
             </pre>
           </Typography>
-          <Typography gutterBottom>
+          <Typography gutterBottom id='order-total'>
             Order Total: ${total}
             <h5 id='validate'>{empty_order}</h5>
           </Typography>
+        </div>
         </DialogContent>
+        
         <DialogActions>
           <Button autoFocus onClick={handleSubmit} id='place-order'>
             Place Order
