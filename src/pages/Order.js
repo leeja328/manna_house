@@ -328,7 +328,7 @@ function Order() {
     <Header />
     <div className='order-container'>
     <div className='order-header'>
-      <h1 id='order-header-text'>Select the quantity of each desired item and then checkout with your <ShoppingCartIcon/> cart at the bottom:</h1>
+      <h1 id='order-header-text'>원하는 상품의 수량을 선택한 후 하단 장바구니로 결제하세요. Select the quantity of each desired item and then checkout with your <ShoppingCartIcon/> cart at the bottom:</h1>
     </div>
     <div className='order-body'>
       <Card sx={{ maxWidth: 345 }}>
@@ -529,7 +529,7 @@ function Order() {
       </Card>
     </div>
     <div className='order-bottom2'>
-      <h5>*actual product may slightly vary from picture</h5>
+      <h5>*실제 제품은 사진과 약간 다를 수 있습니다 / *actual product may slightly vary from picture</h5>
     </div>
     <div className='order-bottom'>
       <Button id='cart-button' onClick={handleClickOpen}><ShoppingCartIcon/>Cart</Button>

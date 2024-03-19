@@ -7,9 +7,9 @@ function footer() {
         <h1>Manna Rice Cake House</h1>
         <hr />
         <h4>For any questions or concerns contact below:</h4>
-        <h3>Phone: 423-227-8989</h3>
-        <h3>Email: peter8456@gmail.com</h3>
-        <h3>Location: Collegedale, TN</h3>
+        <h3>전화/Phone: 423-227-8989</h3>
+        <h3>이메일/Email: peter8456@gmail.com</h3>
+        <h3>위치/Location: Collegedale, TN</h3>
     </div>
   )
 }

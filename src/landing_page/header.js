@@ -9,9 +9,9 @@ function header() {
         <a href='/'><img src={Logo} alt="rice" id='logo' /></a>  
       </div>
       <div className='links'>
-        <a href='/order'>Order</a>
+        <a href='/order'>주문/Order</a>
         <a href='/about'>Our Team</a>
-        <a>Cooking Tips</a>
+        {/* <a>Cooking Tips</a> */}
       </div>
       
     </div>
