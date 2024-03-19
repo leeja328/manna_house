@@ -542,7 +542,7 @@ function Order() {
       >
       <form ref={form} onSubmit={handleSubmit}>
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-          Order Summary
+        주문 요약/Order Summary
         </DialogTitle>
         <IconButton
           id='x-button'
@@ -564,10 +564,10 @@ function Order() {
           error={validate}
           label="*required"
           id="outlined-start-adornment"
-          sx={{ m: 1, width: '35ch'}}
+          sx={{ m: 1, width: '37ch'}}
           onChange={handleChange}
           InputProps={{
-            startAdornment: <InputAdornment position="start">Name:</InputAdornment>,
+            startAdornment: <InputAdornment position="start">이름/Name:</InputAdornment>,
           }}
           name='name'
           />
@@ -575,27 +575,27 @@ function Order() {
           error={validate2}
           label="*required"
           id="outlined-start-adornment"
-          sx={{ m: 1, width: '35ch' }}
+          sx={{ m: 1, width: '37ch' }}
           onChange={handleChange}
           InputProps={{
-            startAdornment: <InputAdornment position="start">Phone:</InputAdornment>,
+            startAdornment: <InputAdornment position="start">전화/Phone:</InputAdornment>,
           }}
           name='phone'
           />
           <TextField
           label="to recieve receipt"
           id="outlined-start-adornment"
-          sx={{ m: 1, width: '35ch' }}
+          sx={{ m: 1, width: '37ch' }}
           InputProps={{
-            startAdornment: <InputAdornment position="start">Email:</InputAdornment>,
+            startAdornment: <InputAdornment position="start">이메일/Email:</InputAdornment>,
           }}
           name='email'
           />
           <TextField
           id="outlined-start-adornment"
-          sx={{ m: 1, width: '35ch' }}
+          sx={{ m: 1, width: '37ch' }}
           InputProps={{
-            startAdornment: <InputAdornment position="start">Address/Location:</InputAdornment>,
+            startAdornment: <InputAdornment position="start">주소/Address/Location:</InputAdornment>,
           }}
           name='address'
           />
@@ -607,7 +607,8 @@ function Order() {
             </pre>
           </Typography>
           <Typography gutterBottom id='order-total'>
-            Order Total: ${total}
+            
+          주문 총액 / Order Total: ${total}
             <h5 id='validate'>{empty_order}</h5>
           </Typography>
         </div>
@@ -615,11 +616,14 @@ function Order() {
         
         <DialogActions>
           <Button type='submit' autoFocus id='place-order'>
-            Place Order
+          주문하기/Place Order
           </Button>
         </DialogActions>
         <textarea name="my_html" id="hidden-summary" cols="30" rows="10">
             {summary}
+        </textarea>
+        <textarea name="total" cols="30" rows="10" id="hidden-summary">
+          {total}
         </textarea>
         </form>
       </BootstrapDialog>
