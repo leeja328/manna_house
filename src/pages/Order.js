@@ -1,9 +1,11 @@
 import React from 'react';
 import { useState } from "react";
 import { useEffect } from "react";
+import { useRef } from "react";
 import Header from '../landing_page/header';
 import Footer from '../landing_page/footer';
 import './Order.css';
+import emailjs from '@emailjs/browser';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -37,6 +39,8 @@ import rice9 from '../images/rice9.jpg';
 // npm install @mui/material @mui/styled-engine-sc styled-components
 // npm install @mui/icons-material
 
+// make sure to install emailjs browser by doing npm i '@emailjs/browser'
+
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
     padding: theme.spacing(2),
@@ -48,6 +52,22 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 
 
 function Order() {
+
+
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    console.log(form.current)
+    emailjs.sendForm('service_e8rooom', 'template_xnozmqc', form.current, 'n3uzUjJcdJGIIN9PC')
+      .then((result) => {
+          console.log(result.text);
+          // navigate ('/contact_reply');
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
 
   const [open, setOpen] = React.useState(false);
 
@@ -88,47 +108,47 @@ function Order() {
     //order summary
     let first = ''
     if (num > 0) {
-      first = 'White Rice Sticks: $35 x ' + num + ' = $' + (num * 35) + '\n';
+      first = '가래떡 백미/White Rice Sticks: $35 x ' + num + ' = $' + (num * 35) + '\n';
     }
 
     let second = ''
     if (num1 > 0) {
-      second = 'Brown Rice Sticks: $45 x ' + num1 + ' = $' + (num1 * 45) + '\n';
+      second = '가래떡 현미/Brown Rice Sticks: $45 x ' + num1 + ' = $' + (num1 * 45) + '\n';
     }
 
     let third = ''
     if (num2 > 0) {
-      third = 'Mugwort Sticks: $40 x ' + num2 + ' = $' + (num2 * 40) + '\n';
+      third = '가래떡 쑥/Mugwort Sticks: $40 x ' + num2 + ' = $' + (num2 * 40) + '\n';
     }
 
     let fourth = ''
     if (num3 > 0) {
-      fourth = 'JulPyeun White Rice: $45 x ' + num3 + ' = $' + (num3 * 45) + '\n';
+      fourth = '절편 백미/JulPyeun White Rice: $45 x ' + num3 + ' = $' + (num3 * 45) + '\n';
     }
 
     let fifth = ''
     if (num4 > 0) {
-      fifth = 'Mugwort: $50 x ' + num4 + ' = $' + (num4 * 50) + '\n';
+      fifth = '절편 쑥/Mugwort: $50 x ' + num4 + ' = $' + (num4 * 50) + '\n';
     }
 
     let sixth = ''
     if (num5 > 0) {
-      sixth = 'Dukbokki: $35 x ' + num5 + ' = $' + (num5 * 35) + '\n';
+      sixth = '떡복이 떡/Dukbokki: $35 x ' + num5 + ' = $' + (num5 * 35) + '\n';
     }
 
     let seventh = ''
     if (num6 > 0) {
-      seventh = 'Dukkook: $40 x ' + num6 + ' = $' + (num6 * 40) + '\n';
+      seventh = '떡국떡(백미)/Dukkook: $40 x ' + num6 + ' = $' + (num6 * 40) + '\n';
     }
 
     let eight = ''
     if (num7 > 0) {
-      eight = 'Dukkook Brown Rice: $45 x ' + num7 + ' = $' + (num7 * 45) + '\n';
+      eight = '떡국떡(현미)/Dukkook Brown Rice: $45 x ' + num7 + ' = $' + (num7 * 45) + '\n';
     }
 
     let nine = ''
     if (num8 > 0) {
-      nine = 'Red Bean Duk: $45 x ' + num8 + ' = $' + (num8 * 45) + '\n';
+      nine = '찰 시루떡/Red Bean Duk: $45 x ' + num8 + ' = $' + (num8 * 45) + '\n';
     }
     setSummary(first + second + third + fourth + fifth + sixth + seventh + eight + nine)
       //total calculation
@@ -185,10 +205,13 @@ function Order() {
     }
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     if (name1 === '') {
       setValidate(true)
       console.log('error')
+      return; // Exit early if validation fails
     } else {
       setValidate(false)
       console.log('success')
@@ -197,10 +220,17 @@ function Order() {
     if (phone1 === '') {
       setValidate2(true)
       console.log('error2')
+      return; // Exit early if validation fails
     } else {
       setValidate2(false)
       console.log('success2')
     }
+
+    if (total === 0) {
+      return;
+    }
+
+    sendEmail(e);
   };
 
   useEffect(() => {
@@ -309,7 +339,7 @@ function Order() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            White Rice Sticks ($35)
+          가래떡 백미/White Rice Sticks ($35)
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -331,7 +361,7 @@ function Order() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-            Brown rice sticks ($45)
+            가래떡 현미/Brown Rice Sticks ($45)
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -353,7 +383,7 @@ function Order() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-            Mugwort sticks ($40)
+            가래떡 쑥/Mugwort sticks ($40)
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread 
@@ -374,7 +404,7 @@ function Order() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-            JulPyeun white rice ($45)
+            절편 백미/JulPyeun white rice ($45)
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -396,7 +426,7 @@ function Order() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-            Mugwort  ($50)
+            절편 쑥/Mugwort  ($50)
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -418,7 +448,7 @@ function Order() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-            Dukbokki ($35)
+            떡복이 떡/Dukbokki ($35)
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -440,7 +470,7 @@ function Order() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-            Dukkook ($40)
+            떡국떡(백미)/Dukkook ($40)
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -462,7 +492,7 @@ function Order() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-            Dukkook brown rice ($45)
+            떡국떡(현미)/Dukkook Brown Rice ($45)
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -484,7 +514,7 @@ function Order() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-            Red bean duk ($45)
+            찰 시루떡/Red Bean Duk ($45)
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -505,12 +535,12 @@ function Order() {
       <Button id='cart-button' onClick={handleClickOpen}><ShoppingCartIcon/>Cart</Button>
     </div>
     <React.Fragment>
-      <form>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
       >
+      <form ref={form} onSubmit={handleSubmit}>
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
           Order Summary
         </DialogTitle>
@@ -529,11 +559,12 @@ function Order() {
         </IconButton>
         <DialogContent dividers>
         <div className='input-form'>
+        
           <TextField
           error={validate}
           label="*required"
           id="outlined-start-adornment"
-          sx={{ m: 1, width: '30ch'}}
+          sx={{ m: 1, width: '35ch'}}
           onChange={handleChange}
           InputProps={{
             startAdornment: <InputAdornment position="start">Name:</InputAdornment>,
@@ -544,7 +575,7 @@ function Order() {
           error={validate2}
           label="*required"
           id="outlined-start-adornment"
-          sx={{ m: 1, width: '30ch' }}
+          sx={{ m: 1, width: '35ch' }}
           onChange={handleChange}
           InputProps={{
             startAdornment: <InputAdornment position="start">Phone:</InputAdornment>,
@@ -552,11 +583,21 @@ function Order() {
           name='phone'
           />
           <TextField
+          label="to recieve receipt"
           id="outlined-start-adornment"
-          sx={{ m: 1, width: '30ch' }}
+          sx={{ m: 1, width: '35ch' }}
           InputProps={{
-            startAdornment: <InputAdornment position="start">Address:</InputAdornment>,
+            startAdornment: <InputAdornment position="start">Email:</InputAdornment>,
           }}
+          name='email'
+          />
+          <TextField
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: '35ch' }}
+          InputProps={{
+            startAdornment: <InputAdornment position="start">Address/Location:</InputAdornment>,
+          }}
+          name='address'
           />
         </div>
         <div className='order-summary'>
@@ -573,13 +614,15 @@ function Order() {
         </DialogContent>
         
         <DialogActions>
-          <Button autoFocus onClick={handleSubmit} id='place-order'>
+          <Button type='submit' autoFocus id='place-order'>
             Place Order
           </Button>
-          {/* <input type="submit" onSubmit={handleSubmit}/> */}
         </DialogActions>
+        <textarea name="my_html" id="hidden-summary" cols="30" rows="10">
+            {summary}
+        </textarea>
+        </form>
       </BootstrapDialog>
-      </form>
     </React.Fragment>
     </div>
     <Footer />

@@ -8,7 +8,7 @@ function About() {
     <>
     <Header />
     <div className='page1-body'>
-        <h1>About</h1>
+        <h1>Coming Soon!</h1>
     </div>
     <Footer />
     </>

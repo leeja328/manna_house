@@ -32,7 +32,7 @@ function home() {
     <div className='home-body3'>
       <div>
           <h1>We Deliver</h1>
-          <h3>We meet you were you are at</h3>
+          <h3>We meet you were you are</h3>
       </div>
       <div>
         <img src={img1} alt="" id='img1'/>
