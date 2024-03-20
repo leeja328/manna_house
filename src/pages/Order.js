@@ -342,8 +342,7 @@ function Order() {
           가래떡 백미/White Rice Sticks ($35)
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            These rice sticks have a soft chewy texture, made from white rice. They taste great steamed or pan-fried and eaten with honey or plain. It comes in a tray with 24 sticks, approx. 8.5lbs
           </Typography>
         </CardContent>
         <CardActions className='buttons'>
@@ -364,8 +363,7 @@ function Order() {
             가래떡 현미/Brown Rice Sticks ($45)
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+              This is similar to the white rice sticks just made with brown rice instead. 
             </Typography>
           </CardContent>
           <CardActions>
@@ -386,7 +384,7 @@ function Order() {
             가래떡 쑥/Mugwort sticks ($40)
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread 
+              These are similar to white rice sticks just made with a Mugwort herb. Mugwort is great for the digestive system and high-blood pressure. It has a tart flavor similar to juniper or mint.
             </Typography>
           </CardContent>
           <CardActions>
@@ -407,8 +405,7 @@ function Order() {
             절편 백미/JulPyeun white rice ($45)
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+              These have a chewy texture that are great to eat plain or with honey. They have a much flatter shape compared to the rice sticks. They come in a tray about 8.5 lbs
             </Typography>
           </CardContent>
             <CardActions>
@@ -429,8 +426,7 @@ function Order() {
             절편 쑥/Mugwort  ($50)
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+              These are similar to their white rice version just with Mugwort herb. Mugwort is great for the digestive system and high-blood pressure. It has a tart flavor similar to juniper or mint.
             </Typography>
           </CardContent>
           <CardActions>
@@ -451,8 +447,7 @@ function Order() {
             떡복이 떡/Dukbokki ($35)
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+              Dukbokki is a very popular korean dish that is made with red pepper sauce and a assortment of vegatables, as well as fish cakes. They are loved for their chewy texture with this hot sauce. They come in a bag approx 8.5lbs
             </Typography>
           </CardContent>
           <CardActions>
@@ -473,8 +468,7 @@ function Order() {
             떡국떡(백미)/Dukkook ($40)
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+              Dukkook is a popular korean soup eaten to celebrate new years but can be eaten at anytime. It can also be eaten pan fried with honey or hot sauce. Comes in 2 bags approx 5lbs each.
             </Typography>
           </CardContent>
           <CardActions>
@@ -495,8 +489,7 @@ function Order() {
             떡국떡(현미)/Dukkook Brown Rice ($45)
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+              This is the same as the white rice version just made with brown rice instead. 
             </Typography>
           </CardContent>
           <CardActions>
@@ -517,8 +510,7 @@ function Order() {
             찰 시루떡/Red Bean Duk ($45)
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
+              This is a rice cake covered with red bean on the outside to make it easier to handle and eat. The red bean has a slight sweet flavor and adds a great contrast to the sticky middle. This comes in a tray approx 8.5lbs
             </Typography>
           </CardContent>
           <CardActions>
@@ -562,7 +554,7 @@ function Order() {
         
           <TextField
           error={validate}
-          label="*required"
+          label="*필수의/*required"
           id="outlined-start-adornment"
           sx={{ m: 1, width: '37ch'}}
           onChange={handleChange}
@@ -573,7 +565,7 @@ function Order() {
           />
           <TextField
           error={validate2}
-          label="*required"
+          label="*필수의/*required"
           id="outlined-start-adornment"
           sx={{ m: 1, width: '37ch' }}
           onChange={handleChange}
@@ -583,7 +575,7 @@ function Order() {
           name='phone'
           />
           <TextField
-          label="to recieve receipt"
+          label="영수증을 위해/to recieve receipt"
           id="outlined-start-adornment"
           sx={{ m: 1, width: '37ch' }}
           InputProps={{
