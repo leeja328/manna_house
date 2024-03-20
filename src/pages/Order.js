@@ -360,7 +360,7 @@ function Order() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-            가래떡 현미/Brown Rice Sticks ($45)
+            가래떡 현미/Brown Rice Sticks ($40)
             </Typography>
             <Typography variant="body2" color="text.secondary">
               This is similar to the white rice sticks just made with brown rice instead. 
@@ -447,7 +447,7 @@ function Order() {
             떡복이 떡/Dukbokki ($35)
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Dukbokki is a very popular korean dish that is made with red pepper sauce and a assortment of vegatables, as well as fish cakes. They are loved for their chewy texture with this hot sauce. They come in a bag approx 8.5lbs
+              Dukbokki is a very popular korean dish that is made with red pepper sauce and a assortment of vegatables, as well as fish cakes. They are loved for their chewy texture with this hot sauce. They come in a tray approx 8.5lbs
             </Typography>
           </CardContent>
           <CardActions>
@@ -468,7 +468,7 @@ function Order() {
             떡국떡(백미)/Dukkook ($40)
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Dukkook is a popular korean soup eaten to celebrate new years but can be eaten at anytime. It can also be eaten pan fried with honey or hot sauce. Comes in 2 bags approx 5lbs each.
+              Dukkook is a popular korean soup eaten to celebrate new years but can be eaten at anytime. It can also be eaten pan fried with honey or hot sauce. Comes in 2 bags approx 4.2lbs each.
             </Typography>
           </CardContent>
           <CardActions>
@@ -510,7 +510,7 @@ function Order() {
             찰 시루떡/Red Bean Duk ($45)
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              This is a rice cake covered with red bean on the outside to make it easier to handle and eat. The red bean has a slight sweet flavor and adds a great contrast to the sticky middle. This comes in a tray approx 8.5lbs
+              This is a rice cake covered with red bean on the outside to make it easier to handle and eat. The red bean has a slight sweet flavor and adds a great contrast to the sticky middle. This comes in a tray approx 5.5lbs
             </Typography>
           </CardContent>
           <CardActions>
