@@ -108,27 +108,27 @@ function Order() {
     //order summary
     let first = ''
     if (num > 0) {
-      first = '가래떡 백미/White Rice Sticks: $35 x ' + num + ' = $' + (num * 35) + '\n';
+      first = '백미 가래떡/White Rice Sticks: $35 x ' + num + ' = $' + (num * 35) + '\n';
     }
 
     let second = ''
     if (num1 > 0) {
-      second = '가래떡 현미/Brown Rice Sticks: $45 x ' + num1 + ' = $' + (num1 * 45) + '\n';
+      second = '현미 가래떡/Brown Rice Sticks: $45 x ' + num1 + ' = $' + (num1 * 45) + '\n';
     }
 
     let third = ''
     if (num2 > 0) {
-      third = '가래떡 쑥/Mugwort Sticks: $40 x ' + num2 + ' = $' + (num2 * 40) + '\n';
+      third = '쑥 가래떡/Mugwort Sticks: $40 x ' + num2 + ' = $' + (num2 * 40) + '\n';
     }
 
     let fourth = ''
     if (num3 > 0) {
-      fourth = '절편 백미/JulPyeun White Rice: $45 x ' + num3 + ' = $' + (num3 * 45) + '\n';
+      fourth = '백미 절편/JulPyeun White Rice: $45 x ' + num3 + ' = $' + (num3 * 45) + '\n';
     }
 
     let fifth = ''
     if (num4 > 0) {
-      fifth = '절편 쑥/Mugwort: $50 x ' + num4 + ' = $' + (num4 * 50) + '\n';
+      fifth = '쑥 절편/Mugwort: $50 x ' + num4 + ' = $' + (num4 * 50) + '\n';
     }
 
     let sixth = ''
@@ -339,7 +339,7 @@ function Order() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-          가래떡 백미/White Rice Sticks ($35)
+          백미 가래떡/White Rice Sticks ($35)
           </Typography>
           <Typography variant="body2" color="text.secondary">
             These rice sticks have a soft chewy texture, made from white rice. They taste great steamed or pan-fried and eaten with honey or plain. It comes in a tray with 24 sticks, approx. 8.5lbs
@@ -360,7 +360,7 @@ function Order() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-            가래떡 현미/Brown Rice Sticks ($40)
+            현미 가래떡/Brown Rice Sticks ($40)
             </Typography>
             <Typography variant="body2" color="text.secondary">
               This is similar to the white rice sticks just made with brown rice instead. 
@@ -381,7 +381,7 @@ function Order() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-            가래떡 쑥/Mugwort sticks ($40)
+            쑥 가래떡/Mugwort sticks ($40)
             </Typography>
             <Typography variant="body2" color="text.secondary">
               These are similar to white rice sticks just made with a Mugwort herb. Mugwort is great for the digestive system and high-blood pressure. It has a tart flavor similar to juniper or mint.
@@ -402,7 +402,7 @@ function Order() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-            절편 백미/JulPyeun white rice ($45)
+            백미 절편/JulPyeun white rice ($45)
             </Typography>
             <Typography variant="body2" color="text.secondary">
               These have a chewy texture that are great to eat plain or with honey. They have a much flatter shape compared to the rice sticks. They come in a tray about 8.5 lbs
@@ -423,7 +423,7 @@ function Order() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-            절편 쑥/Mugwort  ($50)
+            쑥 절편/Mugwort  ($50)
             </Typography>
             <Typography variant="body2" color="text.secondary">
               These are similar to their white rice version just with Mugwort herb. Mugwort is great for the digestive system and high-blood pressure. It has a tart flavor similar to juniper or mint.
