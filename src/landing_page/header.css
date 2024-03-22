@@ -35,3 +35,33 @@ a {
     z-index: 1;
     top: 0px;
 }
+
+#order-link {
+    background-color: rgb(253, 248, 106);
+    color: black;
+    padding: 1.5vh;
+    border-radius: 10px;
+    border: solid;
+    border-color: rgb(158, 158, 158);
+    font-weight: 600;
+}
+
+#order-link:hover {
+    cursor: pointer;
+    background-color: rgb(251, 244, 26);
+}
+
+
+@media only screen and (max-width: 460px)  {
+    .header {
+        justify-content: space-between;
+    }
+
+    .links {
+        padding-right: 7vh;
+    }
+
+    #logo {
+        width: 160px;
+    }
+}

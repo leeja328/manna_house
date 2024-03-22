@@ -6,6 +6,7 @@ import Header from '../landing_page/header';
 import Footer from '../landing_page/footer';
 import './Order.css';
 import emailjs from '@emailjs/browser';
+import Logo from '../images/manna_logo.png';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -108,47 +109,47 @@ function Order() {
     //order summary
     let first = ''
     if (num > 0) {
-      first = '백미 가래떡/White Rice Sticks: $35 x ' + num + ' = $' + (num * 35) + '\n';
+      first = '백미 가래떡/White Rice Sticks: $35 x ' + '\n' + num + ' = $' + (num * 35) + '\n';
     }
 
     let second = ''
     if (num1 > 0) {
-      second = '현미 가래떡/Brown Rice Sticks: $45 x ' + num1 + ' = $' + (num1 * 45) + '\n';
+      second = '현미 가래떡/Brown Rice Sticks: $45 x ' + '\n' + num1 + ' = $' + (num1 * 45) + '\n';
     }
 
     let third = ''
     if (num2 > 0) {
-      third = '쑥 가래떡/Mugwort Sticks: $40 x ' + num2 + ' = $' + (num2 * 40) + '\n';
+      third = '쑥 가래떡/Mugwort Sticks: $40 x ' + '\n' + num2 + ' = $' + (num2 * 40) + '\n';
     }
 
     let fourth = ''
     if (num3 > 0) {
-      fourth = '백미 절편/JulPyeun White Rice: $45 x ' + num3 + ' = $' + (num3 * 45) + '\n';
+      fourth = '백미 절편/JulPyeun White Rice: $45 x ' + '\n' + num3 + ' = $' + (num3 * 45) + '\n';
     }
 
     let fifth = ''
     if (num4 > 0) {
-      fifth = '쑥 절편/Mugwort: $50 x ' + num4 + ' = $' + (num4 * 50) + '\n';
+      fifth = '쑥 절편/Mugwort: $50 x ' + '\n' + num4 + ' = $' + (num4 * 50) + '\n';
     }
 
     let sixth = ''
     if (num5 > 0) {
-      sixth = '떡복이 떡/Dukbokki: $35 x ' + num5 + ' = $' + (num5 * 35) + '\n';
+      sixth = '떡복이 떡/Dukbokki: $35 x ' + '\n' + num5 + ' = $' + (num5 * 35) + '\n';
     }
 
     let seventh = ''
     if (num6 > 0) {
-      seventh = '떡국떡(백미)/Dukkook: $40 x ' + num6 + ' = $' + (num6 * 40) + '\n';
+      seventh = '떡국떡(백미)/Dukkook: $40 x ' + '\n' + num6 + ' = $' + (num6 * 40) + '\n';
     }
 
     let eight = ''
     if (num7 > 0) {
-      eight = '떡국떡(현미)/Dukkook Brown Rice: $45 x ' + num7 + ' = $' + (num7 * 45) + '\n';
+      eight = '떡국떡(현미)/Dukkook Brown Rice: $45 x ' + '\n' + num7 + ' = $' + (num7 * 45) + '\n';
     }
 
     let nine = ''
     if (num8 > 0) {
-      nine = '찰 시루떡/Red Bean Duk: $45 x ' + num8 + ' = $' + (num8 * 45) + '\n';
+      nine = '찰 시루떡/Red Bean Duk: $45 x ' + '\n' + num8 + ' = $' + (num8 * 45) + '\n';
     }
     setSummary(first + second + third + fourth + fifth + sixth + seventh + eight + nine)
       //total calculation
@@ -236,7 +237,7 @@ function Order() {
   useEffect(() => {
     // Check if total is equal to 0
     if (total === 0) {
-      setEmpty_order('*Cart Empty!');
+      setEmpty_order('*카트가 비어 있습니다/*Cart Empty!');
     } else {
       setEmpty_order('');
     }
@@ -325,7 +326,17 @@ function Order() {
 
   return (
     <>
-    <Header />
+    <div className='header'>
+      <div className='logo'>
+        <a href='/'><img src={Logo} alt="rice" id='logo' /></a>  
+      </div>
+      <div className='links'>
+        {/* <a href='/order' id='order-link'>주문/Order</a> */}
+        {/* <a href='/about'>Our Team</a> */}
+        {/* <a>Cooking Tips</a> */}
+      </div>
+      
+    </div>
     <div className='order-container'>
     <div className='order-header'>
       <h1 id='order-header-text'>원하는 상품의 수량을 선택한 후 하단 장바구니로 결제하세요. Select the quantity of each desired item and then checkout with your <ShoppingCartIcon/> cart at the bottom:</h1>
@@ -556,7 +567,7 @@ function Order() {
           error={validate}
           label="*필수의/*required"
           id="outlined-start-adornment"
-          sx={{ m: 1, width: '37ch'}}
+          sx={{ m: 1, width: '30ch'}}
           onChange={handleChange}
           InputProps={{
             startAdornment: <InputAdornment position="start">이름/Name:</InputAdornment>,
@@ -567,7 +578,7 @@ function Order() {
           error={validate2}
           label="*필수의/*required"
           id="outlined-start-adornment"
-          sx={{ m: 1, width: '37ch' }}
+          sx={{ m: 1, width: '30ch' }}
           onChange={handleChange}
           InputProps={{
             startAdornment: <InputAdornment position="start">전화/Phone:</InputAdornment>,
@@ -577,17 +588,18 @@ function Order() {
           <TextField
           label="영수증을 위해/to recieve receipt"
           id="outlined-start-adornment"
-          sx={{ m: 1, width: '37ch' }}
+          sx={{ m: 1, width: '30ch' }}
           InputProps={{
             startAdornment: <InputAdornment position="start">이메일/Email:</InputAdornment>,
           }}
           name='email'
           />
           <TextField
+          label="주소/Address/Location"
           id="outlined-start-adornment"
-          sx={{ m: 1, width: '37ch' }}
+          sx={{ m: 1, width: '30ch' }}
           InputProps={{
-            startAdornment: <InputAdornment position="start">주소/Address/Location:</InputAdornment>,
+            startAdornment: <InputAdornment position="start">:</InputAdornment>,
           }}
           name='address'
           />

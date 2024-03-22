@@ -106,7 +106,7 @@ button:hover {
 #place-order {
     border: solid;
     border-color: #1976D2;
-    width: 375px;
+    width: 320px;
 }
 
 @media only screen and (max-width: 1300px)  {
