@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
+import { useNavigate } from 'react-router-dom';
 import Header from '../landing_page/header';
 import Footer from '../landing_page/footer';
 import './Order.css';
@@ -198,6 +199,8 @@ function Order() {
     setOpen(false);
   };
 
+  const navigate = useNavigate();
+
   const handleChange = (event) => {
     if (event.target.name === 'phone') {
       setPhone1(event.target.value);
@@ -232,6 +235,10 @@ function Order() {
     }
 
     sendEmail(e);
+
+    setOpen(false);
+
+    navigate ('/order_confirmation');
   };
 
   useEffect(() => {
@@ -630,6 +637,8 @@ function Order() {
           {total}
         </textarea>
         </form>
+        {/* <h1>전화로 주문해주세요 / Please order by phone: 423-227-8989</h1>
+      <h1>You can order online again April 1st</h1> */}
       </BootstrapDialog>
     </React.Fragment>
     </div>
