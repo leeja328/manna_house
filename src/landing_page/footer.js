@@ -10,6 +10,7 @@ function footer() {
         <h3>전화/Phone: 423-227-8989</h3>
         <h3>이메일/Email: peter8456@gmail.com</h3>
         <h3>위치/Location: Collegedale, TN</h3>
+        <a href="/dashboard">Admin Login</a>
     </div>
   )
 }

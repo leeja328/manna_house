@@ -2,31 +2,33 @@ import React from 'react';
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
+import { useNavigate } from 'react-router-dom';
+import Header from '../landing_page/header';
+import Footer from '../landing_page/footer';
 import './Order.css';
-// import { useNavigate } from 'react-router-dom';
-// import Header from '../landing_page/header';
-// import Footer from '../landing_page/footer';
 import emailjs from '@emailjs/browser';
-// import Logo from '../../images/manna_logo.png';
-
 import Logo from '../images/manna_logo.png';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import CardActions from '@mui/material/CardActions';
-import Button from '@mui/material/Button';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { styled } from '@mui/material/styles';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
+import { collection, addDoc } from "firebase/firestore"; 
+import { db } from '../../config/firestore';
+
+//mui
+  import Card from '@mui/material/Card';
+  import CardContent from '@mui/material/CardContent';
+  import CardMedia from '@mui/material/CardMedia';
+  import Typography from '@mui/material/Typography';
+  import { CardActionArea } from '@mui/material';
+  import CardActions from '@mui/material/CardActions';
+  import Button from '@mui/material/Button';
+  import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+  import { styled } from '@mui/material/styles';
+  import Dialog from '@mui/material/Dialog';
+  import DialogTitle from '@mui/material/DialogTitle';
+  import DialogContent from '@mui/material/DialogContent';
+  import DialogActions from '@mui/material/DialogActions';
+  import IconButton from '@mui/material/IconButton';
+  import CloseIcon from '@mui/icons-material/Close';
+  import TextField from '@mui/material/TextField';
+  import InputAdornment from '@mui/material/InputAdornment';
 
 import rice1 from '../images/rice1.png';
 import rice2 from '../images/rice2.jpg';
@@ -44,13 +46,6 @@ import rice9 from '../images/rice9.jpg';
 
 // make sure to install emailjs browser by doing npm i '@emailjs/browser'
 
-// import Swal from 'sweetalert2';
-
-import { collection, addDoc } from "firebase/firestore"; 
-import { db } from '../config/firebase';
-
-
-
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
     padding: theme.spacing(2),
@@ -61,7 +56,9 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 
-const Order = () => {
+function Order() {
+
+
 
   const form = useRef();
 
@@ -104,10 +101,6 @@ const Order = () => {
   const [name1, setName1] = useState('');
 
   const [phone1, setPhone1] = useState('');
-
-  const [email1, setEmail1] = useState('');
-
-  const [address1, setAddress1] = useState('');
 
   const [validate, setValidate] = useState();
 
@@ -209,67 +202,17 @@ const Order = () => {
     setOpen(false);
   };
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     if (event.target.name === 'phone') {
       setPhone1(event.target.value);
     } else if (event.target.name === 'name') {
       setName1(event.target.value);
-    } else if (event.target.name === 'email') {
-      setEmail1(event.target.value);
-    } else if (event.target.name === 'address') {
-      setAddress1(event.target.value);
     }
   }
 
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-  var yyyy = today.getFullYear();
-
-  today = yyyy + '-' + mm + '-' + dd;
-
-  const [fullName, setFullName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [address, setAddress] = useState('');
-  const [orderTotal, setOrderTotal] = useState('');
-  const [orderSummary, setOrderSummary] = useState('');
-  const [date, setDate] = useState(today);
-  const [orders, setOrders] = useState([]);
-
-  const handleAdd = async (e) => {
-    e.preventDefault();
-
-    const newOrder = {
-      fullName: name1,
-      email: email1,
-      phone: phone1,
-      address: address1,
-      orderTotal: total,
-      orderSummary: summary,
-      date,
-    };
-    console.log(newOrder)
-    console.log(orders)
-    orders.push(newOrder)
-
-    try {
-      await addDoc(collection(db, "orders"), {
-        ...newOrder
-      });
-    } catch (error) {
-      console.log(error)
-    }
-  
-    setOrders(orders);
-    
-
-  };
-
-
-  const handleSubmit = async(e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (name1 === '') {
@@ -294,17 +237,11 @@ const Order = () => {
       return;
     }
 
-    // Call handleAdd after validating inputs
-    setOrderTotal(total); // Update orderTotal state with the total
-
-    // Call handleAdd with the updated state values
-    await handleAdd(e);
-
-    // sendEmail(e);
+    sendEmail(e);
 
     setOpen(false);
 
-    // navigate ('/order_confirmation');
+    navigate ('/order_confirmation');
   };
 
   useEffect(() => {
@@ -404,8 +341,11 @@ const Order = () => {
         <a href='/'><img src={Logo} alt="rice" id='logo' /></a>  
       </div>
       <div className='links'>
-        <a id='order-link'>Home</a>
+        {/* <a href='/order' id='order-link'>주문/Order</a> */}
+        {/* <a href='/about'>Our Team</a> */}
+        {/* <a>Cooking Tips</a> */}
       </div>
+      
     </div>
     <div className='order-container'>
     <div className='order-header'>
@@ -659,7 +599,6 @@ const Order = () => {
           label="영수증을 위해/to recieve receipt"
           id="outlined-start-adornment"
           sx={{ m: 1, width: '30ch' }}
-          onChange={handleChange}
           InputProps={{
             startAdornment: <InputAdornment position="start">이메일/Email:</InputAdornment>,
           }}
@@ -669,7 +608,6 @@ const Order = () => {
           label="주소/Address/Location"
           id="outlined-start-adornment"
           sx={{ m: 1, width: '30ch' }}
-          onChange={handleChange}
           InputProps={{
             startAdornment: <InputAdornment position="start">:</InputAdornment>,
           }}
@@ -707,6 +645,7 @@ const Order = () => {
       </BootstrapDialog>
     </React.Fragment>
     </div>
+    <Footer />
     </>
   )
 }
