@@ -46,7 +46,7 @@ const Edit = ({ orders, selectedOrder, setOrders, setIsEditing, getOrders }) => 
     Swal.fire({
       icon: 'success',
       title: 'Updated!',
-      text: `${order.firstName} data has been updated.`,
+      text: `${order.fullName} data has been updated.`,
       showConfirmButton: false,
       timer: 1500,
     });

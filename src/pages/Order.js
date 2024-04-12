@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
 import './Order.css';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import Header from '../landing_page/header';
 // import Footer from '../landing_page/footer';
 import emailjs from '@emailjs/browser';
@@ -209,7 +209,7 @@ const Order = () => {
     setOpen(false);
   };
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     if (event.target.name === 'phone') {
@@ -304,7 +304,7 @@ const Order = () => {
 
     setOpen(false);
 
-    // navigate ('/order_confirmation');
+    navigate ('/order_confirmation');
   };
 
   useEffect(() => {
@@ -632,7 +632,6 @@ const Order = () => {
         </IconButton>
         <DialogContent dividers>
         <div className='input-form'>
-        
           <TextField
           error={validate}
           label="*필수의/*required"
@@ -675,6 +674,10 @@ const Order = () => {
           }}
           name='address'
           />
+          {/* <input type="text" name='name' error={validate} onChange={handleChange} placeholder='*이름/Name:'/>
+          <input type="text" name='phone' error={validate2} onChange={handleChange} placeholder='*전화/Phone:'/>
+          <input type="text" name='email' onChange={handleChange} placeholder='이메일/Email:'/>
+          <input type="text" name='address' onChange={handleChange} placeholder='주소/Address/Location:'/> */}
         </div>
         <div className='order-summary'>
           <Typography gutterBottom>

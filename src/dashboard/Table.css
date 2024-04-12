@@ -1,0 +1,55 @@
+#table-button {
+    background-color: #0250bc;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+}
+
+#table-button:hover {
+    background-color: #115ec9;
+}
+
+#table-button-adding {
+    background-color: #0250bc;
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    font-size: 15px;
+}
+
+#table-button-adding:hover {
+    background-color: #115ec9;
+}
+
+
+.muted-button {
+    background-color: #0250bc;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+}
+
+.muted-button:hover {
+    background-color: #115ec9;
+}
+
+
+@media only screen and (max-width: 480px) {
+    #dashboard-header {
+        font-size: 15px;
+    }
+
+    #table-button {
+        color: white;
+        font-size: 10px;
+        width: 40px;
+        height: 30px;
+    }
+
+    #table-button-adding {
+        width: 70px;
+        font-size: 10px;
+        height: 30px;
+    }
+
+}

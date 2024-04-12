@@ -16,14 +16,14 @@ const Add = ({ orders, setOrders, setIsAdding }) => {
   const handleAdd = async (e) => {
     e.preventDefault();
 
-    if (!fullName || !email || !phone || !address || !orderTotal || !orderSummary || !date) {
-      return Swal.fire({
-        icon: 'error',
-        title: 'Error!',
-        text: 'All fields are required.',
-        showConfirmButton: true,
-      });
-    }
+    // if (!fullName || !email || !phone || !address || !orderTotal || !orderSummary || !date) {
+    //   return Swal.fire({
+    //     icon: 'error',
+    //     title: 'Error!',
+    //     text: 'All fields are required.',
+    //     showConfirmButton: true,
+    //   });
+    // }
 
     const newOrder = {
       fullName,
@@ -74,7 +74,7 @@ const Add = ({ orders, setOrders, setIsAdding }) => {
         <label htmlFor="lastName">Email</label>
         <input
           id="email"
-          type="email"
+          type="text"
           name="email"
           value={email}
           onChange={e => setEmail(e.target.value)}

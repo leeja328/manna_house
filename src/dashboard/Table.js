@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Table.css';
 
 const Table = ({ orders, handleEdit, handleDelete }) => {
   const [sortBy, setSortBy] = useState(null);
@@ -59,12 +60,12 @@ const Table = ({ orders, handleEdit, handleDelete }) => {
           {sortedOrders().map((order, i) => (
             <tr key={order.id}>
               <td className="text-right">
-                <button onClick={() => handleEdit(order.id)} className="button muted-button">
+                <button id='table-button' onClick={() => handleEdit(order.id)} className="button muted-button">
                   Edit
                 </button>
               </td>
               <td className="text-left">
-                <button onClick={() => handleDelete(order.id)} className="button muted-button">
+                <button id='table-button' onClick={() => handleDelete(order.id)} className="button muted-button">
                   Delete
                 </button>
               </td>

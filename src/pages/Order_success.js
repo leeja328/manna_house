@@ -9,7 +9,7 @@ function Order_success() {
     <><Header />
     <div className='order-success-body'>
         <h1>주문해주셔서 감사합니다! 주문 확인 이메일을 확인하세요.</h1>
-        <h1>Thank you for your order! Check your email for the order confirmation.</h1>
+        <h1>Thank you for your order!</h1>
     </div>
     <Footer/>
     </>

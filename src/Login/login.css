@@ -1,0 +1,21 @@
+/* .small-container1 {
+    display: flex;
+    align-items: center;
+    padding: 5vh;
+    background-color: red;
+} */
+
+.small-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 5vh;
+
+}
+
+.small-container1 {
+    display: flex;
+    justify-content: center;
+    padding-top: 5vh;
+    flex-direction: column;
+    gap: 10px;
+}

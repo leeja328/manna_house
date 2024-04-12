@@ -651,3 +651,47 @@ function Order() {
 }
 
 export default Order
+
+
+{/* <TextField
+          error={validate}
+          label="*필수의/*required"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: '30ch'}}
+          onChange={handleChange}
+          InputProps={{
+            startAdornment: <InputAdornment position="start">이름/Name:</InputAdornment>,
+          }}
+          name='name'
+          />
+          <TextField
+          error={validate2}
+          label="*필수의/*required"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: '30ch' }}
+          onChange={handleChange}
+          InputProps={{
+            startAdornment: <InputAdornment position="start">전화/Phone:</InputAdornment>,
+          }}
+          name='phone'
+          />
+          <TextField
+          label="영수증을 위해/to recieve receipt"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: '30ch' }}
+          onChange={handleChange}
+          InputProps={{
+            startAdornment: <InputAdornment position="start">이메일/Email:</InputAdornment>,
+          }}
+          name='email'
+          />
+          <TextField
+          label="주소/Address/Location"
+          id="outlined-start-adornment"
+          sx={{ m: 1, width: '30ch' }}
+          onChange={handleChange}
+          InputProps={{
+            startAdornment: <InputAdornment position="start">:</InputAdornment>,
+          }}
+          name='address'
+          /> */}

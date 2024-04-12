@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import './login.css'
 // import { useNavigate } from 'react-router-dom';
 
 const Login = ({ setIsAuthenticated }) => {
@@ -55,7 +56,7 @@ const Login = ({ setIsAuthenticated }) => {
   }
   return (
     <div className="small-container">
-      <form onSubmit={handleLogin}>
+      <form className="small-container1" onSubmit={handleLogin}>
         <h1>Manna Rice Cake House</h1>
         <h1>Login</h1>
         <label htmlFor="email">Email</label>
