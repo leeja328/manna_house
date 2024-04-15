@@ -300,7 +300,7 @@ const Order = () => {
     // Call handleAdd with the updated state values
     await handleAdd(e);
 
-    // sendEmail(e);
+    sendEmail(e);
 
     setOpen(false);
 

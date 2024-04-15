@@ -82,7 +82,7 @@ const Add = ({ orders, setOrders, setIsAdding }) => {
         <label htmlFor="email">Phone</label>
         <input
           id="phone"
-          type="phone"
+          type="tel"
           name="phone"
           value={phone}
           onChange={e => setPhone(e.target.value)}
